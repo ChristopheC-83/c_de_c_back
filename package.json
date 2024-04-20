@@ -1,0 +1,17 @@
+{
+  "name": "velo-expresso-back",
+  "version": "1.0.0",
+  "description": "A faire avant déploiement final :\r _________________________________",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "purgecss" : "purgecss --css public/style/style.css --content views/common/*.php views/components/*.php views/pages/notices/*.php views/pages/*.php views/pages/bikes/*.php views/pages/home/*.php views/pages/opinions/*.php views/pages/rental/*.php views/pages/workshop/*.php views/index.php public/javascript/*.js -o public/style/cleaned/final_css.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "purgecss": "^6.0.0"
+  }
+}

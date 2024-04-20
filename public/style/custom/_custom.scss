@@ -1,0 +1,26 @@
+.midFlex, .fleMid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dir-writing {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
+  .dir-writing {
+    writing-mode: initial;
+  }
+}
+.logo-partner{
+width: 100px;
+height: 100px;
+}
+
+.overlay{
+  filter: brightness(70%);}
