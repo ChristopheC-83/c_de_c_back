@@ -10,9 +10,11 @@ define( 'MEDIA_PATH', 'public/assets/articles_media/article_' );
 require_once( './controllers/Tools.controller.php' );
 require_once( './controllers/Main.controller.php' );
 require_once( './controllers/Home.controller.php' );
+require_once( './controllers/articles.controller.php' );
 
 $mainController = new MainController();
 $homeController = new HomeController();
+$articlesController= new ArticlesController();
 
 try {
     if ( !isset( $_GET[ 'page' ] ) ) {
@@ -30,10 +32,10 @@ try {
 
             case 'validation_login':
             // Tools::showArray( $_POST );
-            if ( !empty( $_POST[ 'user_name' ] ) && !empty( $_POST[ 'user_password' ] ) ) {
-                $user_name = Tools::secureHTML( $_POST[ 'user_name' ] );
-                $user_password = Tools::secureHTML( $_POST[ 'user_password' ] );
-                $mainController->validation_login( $user_name, $user_password );
+            if ( !empty( $_POST[ 'name' ] ) && !empty( $_POST[ 'password' ] ) ) {
+                $name = Tools::secureHTML( $_POST[ 'name' ] );
+                $password = Tools::secureHTML( $_POST[ 'password' ] );
+                $mainController->validation_login( $name, $password );
             } else {
                 Tools::showAlert( 'Il faut remplir les 2 champs !', 'alert-warning' );
                 header( 'Location: ' . URL . 'connection' );
@@ -50,6 +52,12 @@ try {
                     case 'logout':
                     $mainController->logout();
                     break;
+
+                    // Gestion page de la location et des routes associées dans le fichier 
+                    case "articles":
+                        require_once("indexComponents/articles.index.php");
+                        break;
+
 
                     // Gestion page de la location et des routes associées dans le fichier
 
