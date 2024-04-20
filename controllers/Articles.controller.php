@@ -43,7 +43,7 @@ class ArticlesController extends MainController
         } else {
             Tools::showAlert( 'Problème lors de l\'enregistrement de l\'article !', 'alert-danger' );
         }
-        header( 'Location: ' . URL . 'admin/articles/write_new_article' );
+        header( 'Location: ' . URL . 'admin/articles/view_all_articles' );
     
     
     }
@@ -64,14 +64,43 @@ class ArticlesController extends MainController
     
     }
 
-    public function  deleteArticle( $id,$type ){
+    public function  deleteArticle( $id ){
 
         // $this->articlesManager->deleteArticleDB( $id, $type );
-        if($this->articlesManager->deleteArticleDB( $id, $type )){
+        if($this->articlesManager->deleteArticleDB( $id )){
             Tools::showAlert( 'Article bien supprimé !', 'alert-success' );
         } else {
             Tools::showAlert( 'Problème lors de la suppression de l\'article !', 'alert-danger' );
         }
         header( 'Location: ' . URL . 'admin/articles/view_all_articles' );
     }
+
+    public function updateArticlePage( $id ){ 
+    
+        $types = $this->articlesManager->getAllTypesArticles();
+        $article = $this->articlesManager->getArticleById($id);
+        $data_page = [
+            'page_description' => 'Update one Article',
+            'page_title' => 'Update one Article',
+            'view' => './views/pages/articles/updateArticle.view.php',
+            'template' => './views/common/template.php',
+            'article' => $article,
+            'types' => $types,
+        ];
+        $this->functions->generatePage( $data_page );
+    }
+
+    public function updateThisArticle( $id, $title, $position,$visible, $type, $pitch, $text ){
+        while ( $this->articlesManager->isPositionUnavailable( $position, $type ) ) {
+            $position++;
+        }
+        if($this->articlesManager->updateThisArticleDB( $id, $title, $position,$visible, $type, $pitch, $text )){
+            Tools::showAlert( 'Article bien modifié à la position '.$position.' !', 'alert-success' );
+        } else {
+            Tools::showAlert( 'Problème lors de la modification de l\'article !', 'alert-danger' );
+        }
+    
+        header( 'Location: ' . URL . 'admin/articles/view_all_articles' );
+    }
+
 }

@@ -31,12 +31,30 @@ switch ( $url[ 2 ] ) {
 
     case 'delete_article':
         $id = Tools::secureHTML( $_POST[ 'id' ] );
-    $articlesController->deleteArticle( $id,$type );
+    $articlesController->deleteArticle( $id );
     break;
 
     case 'updateArticle':
         $id = Tools::secureHTML( $url[ 3 ] );
-        $articlesController->updateArticle( $id );
+        $articlesController->updateArticlePage( $id );
+        break;
+
+    case 'update_this_article':
+        // Tools::showArray( $_POST );
+        $id = Tools::secureHTML( $_POST[ 'id' ] );
+        $title = Tools::secureHTML( $_POST[ 'title' ] );
+        $position = Tools::secureHTML( $_POST[ 'position' ] );
+        $visible = Tools::secureHTML( $_POST[ 'visible' ] );
+        $type = Tools::secureHTML( $_POST[ 'type' ] );
+        $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
+        $text = Tools::secureHTML( $_POST[ 'text' ] );
+        if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) ) {
+            $articlesController->updateThisArticle( $id, $title, $position,$visible, $type, $pitch, $text );
+        } else {
+            Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
+            header( 'Location: ' . URL . 'admin/articles/updateArticle/' . $id );
+        }
+
         break;
 
 }

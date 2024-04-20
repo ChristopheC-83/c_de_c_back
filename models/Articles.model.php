@@ -39,6 +39,16 @@ class ArticlesManager extends MainManager
         
     }
 
+    public function  getArticleById($id){
+        $req = 'SELECT * FROM articles WHERE id = :id';
+        $stmt = $this->getDB()->prepare( $req );
+        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+        $stmt->execute();
+        $article = $stmt->fetch( PDO::FETCH_ASSOC );
+        $stmt->closeCursor();
+        return $article;
+    }
+
     public function isPositionUnavailable( $position, $type ){
         $req= 'SELECT * FROM articles WHERE position = :position AND type = :type';
         $stmt = $this->getDB()->prepare( $req );
@@ -60,6 +70,22 @@ class ArticlesManager extends MainManager
         $isDelete = ($stmt->rowCount() > 0);
         $stmt->closeCursor();
         return $isDelete;
+    }
+
+    public function updateThisArticleDB( $id, $title, $position,$visible, $type, $pitch, $text ){
+        $req = 'UPDATE articles SET title = :title, position = :position,visible = :visible, type = :type, pitch = :pitch, text = :text WHERE id = :id';
+        $stmt = $this->getDB()->prepare( $req );
+        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+        $stmt->bindValue( ':title', $title, PDO::PARAM_STR );
+        $stmt->bindValue( ':position', $position, PDO::PARAM_INT );
+        $stmt->bindValue( ':visible', $visible, PDO::PARAM_INT );
+        $stmt->bindValue( ':type', $type, PDO::PARAM_STR );
+        $stmt->bindValue( ':pitch', $pitch, PDO::PARAM_STR );
+        $stmt->bindValue( ':text', $text, PDO::PARAM_STR );
+        $stmt->execute();
+        $isUpdate = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isUpdate;
     }
 
 
