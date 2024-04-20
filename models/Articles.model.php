@@ -14,10 +14,11 @@ class ArticlesManager extends MainManager
         return $types;
     }
 
-    public function  sendNewArticleToDB( $title, $type, $text ){
-        $req = 'INSERT INTO articles ( title, type, text ) VALUES ( :title, :type, :text )';
+    public function  sendNewArticleToDB( $title,$position, $type, $text ){
+        $req = 'INSERT INTO articles ( title,position, type, text ) VALUES ( :title,:position, :type, :text )';
         $stmt = $this->getDB()->prepare( $req );
         $stmt->bindValue( ':title', $title, PDO::PARAM_STR );
+        $stmt->bindValue( ':position', $position, PDO::PARAM_INT );
         $stmt->bindValue( ':type', $type, PDO::PARAM_STR );
         $stmt->bindValue( ':text', $text, PDO::PARAM_STR );
         $stmt->execute();

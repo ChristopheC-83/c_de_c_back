@@ -30,9 +30,9 @@ class ArticlesController extends MainController
         $this->functions->generatePage( $data_page );
     }
 
-    public function  sendNewArticleToDB( $title, $type, $text ){
+    public function  sendNewArticleToDB( $title,$position, $type, $text ){
         
-        if($this->articlesManager->sendNewArticleToDB( $title, $type, $text ))
+        if($this->articlesManager->sendNewArticleToDB( $title,$position, $type, $text ))
         {
             Tools::showAlert( 'Article bien enregistré !', 'alert-success' );
         } else {
