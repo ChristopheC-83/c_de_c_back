@@ -42,4 +42,20 @@ class ArticlesController extends MainController
     
     
     }
+
+    public function  viewAllArticles(){ 
+        
+        $types = $this->articlesManager->getAllTypesArticles();
+        $allArticles = $this->articlesManager->getAllArticles();
+        $data_page = [
+            'page_description' => 'All Articles',
+            'page_title' => 'All Articles',
+            'view' => './views/pages/articles/viewAllArticles.view.php',
+            'template' => './views/common/template.php',
+            'allArticles' => $allArticles,
+            'types' => $types,
+        ];
+        $this->functions->generatePage( $data_page );
+    
+    }
 }

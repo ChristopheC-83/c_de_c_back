@@ -1,7 +1,7 @@
 const demoBaseConfig = {
     selector: 'textarea#classic',
     width: "100%",
-    height: 500,
+    height: 1000,
     resize: false,
     autosave_ask_before_unload: false,
     powerpaste_allow_local_images: true,

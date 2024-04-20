@@ -9,10 +9,12 @@
 </header>
 
 <?php if (!empty($_SESSION['name'])) : ?>
-<div class="d-flex w-100 flex-wrap justify-content-between ">
+<div class="d-flex w-100 flex-wrap justify-content-between p-4
+">
     <a href="<?=URL?>admin/articles/write_new_article"><button class="btn btn-primary">Ecrire un article</button></a>
+    <a href="<?=URL?>admin/articles/view_all_articles"><button class="btn btn-secondary">Voir les articles</button></a>
 
-    
+
 </div>
 
 

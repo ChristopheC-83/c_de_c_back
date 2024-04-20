@@ -27,5 +27,15 @@ class ArticlesManager extends MainManager
     
     }
 
+    public function getAllArticles(){
+        $req = 'SELECT * FROM articles';
+        $stmt = $this->getDB()->prepare( $req );
+        $stmt->execute();
+        $articles = $stmt->fetchAll( PDO::FETCH_ASSOC );
+        $stmt->closeCursor();
+        return $articles;
+        
+    }
+
 
  }

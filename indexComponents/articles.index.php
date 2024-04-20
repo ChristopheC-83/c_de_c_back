@@ -23,6 +23,10 @@ switch ( $url[ 2 ] ) {
         }
         break;
 
+        case "view_all_articles":
+            $articlesController->viewAllArticles();
+            break;
+
 
 
 }
