@@ -30,7 +30,7 @@ class ArticlesManager extends MainManager
     }
 
     public function getAllArticles(){
-        $req = 'SELECT * FROM articles';
+        $req = 'SELECT * FROM articles ORDER BY type,position';
         $stmt = $this->getDB()->prepare( $req );
         $stmt->execute();
         $articles = $stmt->fetchAll( PDO::FETCH_ASSOC );
@@ -49,6 +49,17 @@ class ArticlesManager extends MainManager
         $stmt->closeCursor();
         return $isUnavailable;
     
+    }
+
+    public function deleteArticleDB($id){
+        // echo 'id : '.$id.' type : '.$type;
+        $req = 'DELETE FROM articles WHERE id = :id';
+        $stmt = $this->getDB()->prepare( $req );
+        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+        $stmt->execute();
+        $isDelete = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isDelete;
     }
 
 

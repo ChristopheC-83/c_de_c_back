@@ -63,4 +63,15 @@ class ArticlesController extends MainController
         $this->functions->generatePage( $data_page );
     
     }
+
+    public function  deleteArticle( $id,$type ){
+
+        // $this->articlesManager->deleteArticleDB( $id, $type );
+        if($this->articlesManager->deleteArticleDB( $id, $type )){
+            Tools::showAlert( 'Article bien supprimé !', 'alert-success' );
+        } else {
+            Tools::showAlert( 'Problème lors de la suppression de l\'article !', 'alert-danger' );
+        }
+        header( 'Location: ' . URL . 'admin/articles/view_all_articles' );
+    }
 }

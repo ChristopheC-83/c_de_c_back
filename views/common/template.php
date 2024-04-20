@@ -9,8 +9,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=roboto:100,400,700,900" rel="stylesheet" />
-    <!-- <link href="<?= URL ?>public/style/style.css" rel="stylesheet" /> -->
-    <link href="<?= URL ?>public/style/cleaned/final_css.css" rel="stylesheet" />
+    <link href="<?= URL ?>public/style/style.css" rel="stylesheet" />
+    <!-- <link href="<?= URL ?>public/style/cleaned/final_css.css" rel="stylesheet" /> -->
 
     <!-- tiny -->
     <script src="https://cdn.tiny.cloud/1/94rozv3pqxjb8h7bpwi0o43i56eion39hozswfspawi2xo6t/tinymce/7/tinymce.min.js"

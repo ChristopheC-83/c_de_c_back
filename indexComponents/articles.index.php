@@ -7,28 +7,36 @@
 switch ( $url[ 2 ] ) {
 
     case 'write_new_article':
-        $articlesController->newArticlePage();
-        break;
+    $articlesController->newArticlePage();
+    break;
 
     case 'send_new_article':
-        // Tools::showArray( $_POST );
-        $title = Tools::secureHTML( $_POST[ 'title' ] );
-        $position = Tools::secureHTML( $_POST[ 'position' ] );
-        $type = Tools::secureHTML( $_POST[ 'type' ] );
-        $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
-        $text = Tools::secureHTML( $_POST[ 'text' ] );
-        if( !empty( $title )&& !empty( $position ) && !empty( $type ) && !empty( $pitch ) ){
-            $articlesController->sendNewArticleToDB( $title,$position, $type,$pitch, $text );
-        } else {
-            Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
-            header( 'Location: ' . URL . 'admin/articles/write_new_article' );
-        }
+    // Tools::showArray( $_POST );
+    $title = Tools::secureHTML( $_POST[ 'title' ] );
+    $position = Tools::secureHTML( $_POST[ 'position' ] );
+    $type = Tools::secureHTML( $_POST[ 'type' ] );
+    $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
+    $text = Tools::secureHTML( $_POST[ 'text' ] );
+    if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) ) {
+        $articlesController->sendNewArticleToDB( $title, $position, $type, $pitch, $text );
+    } else {
+        Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
+        header( 'Location: ' . URL . 'admin/articles/write_new_article' );
+    }
+    break;
+
+    case 'view_all_articles':
+    $articlesController->viewAllArticles();
+    break;
+
+    case 'delete_article':
+        $id = Tools::secureHTML( $_POST[ 'id' ] );
+    $articlesController->deleteArticle( $id,$type );
+    break;
+
+    case 'updateArticle':
+        $id = Tools::secureHTML( $url[ 3 ] );
+        $articlesController->updateArticle( $id );
         break;
-
-        case "view_all_articles":
-            $articlesController->viewAllArticles();
-            break;
-
-
 
 }

@@ -23689,7 +23689,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.midFlex, .fleMid {
+.midFlex,
+.fleMid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23715,4 +23716,9 @@ textarea.form-control-lg {
 
 .overlay {
   filter: brightness(70%);
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }/*# sourceMappingURL=style.css.map */

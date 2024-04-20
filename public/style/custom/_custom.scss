@@ -1,4 +1,5 @@
-.midFlex, .fleMid {
+.midFlex,
+.fleMid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,10 +18,16 @@
     writing-mode: initial;
   }
 }
-.logo-partner{
-width: 100px;
-height: 100px;
+.logo-partner {
+  width: 100px;
+  height: 100px;
 }
 
-.overlay{
-  filter: brightness(70%);}
+.overlay {
+  filter: brightness(70%);
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
