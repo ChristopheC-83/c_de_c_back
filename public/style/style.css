@@ -485,8 +485,7 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
--webkit-appearance: button;
-   appearance: button;
+  -webkit-appearance: button;
 }
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -544,7 +543,6 @@ legend + * {
 
 [type=search] {
   -webkit-appearance: textfield;
-  appearance: textfield;
   outline-offset: -2px;
 }
 
@@ -566,7 +564,6 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  appearance: button;
   -webkit-appearance: button;
 }
 
@@ -12333,7 +12330,6 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  appearance: button;
   -webkit-appearance: button;
 }
 button:not(:disabled),
@@ -12391,7 +12387,6 @@ legend + * {
 }
 
 [type=search] {
-  appearance: textfield;
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
@@ -12414,7 +12409,6 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  appearance: button;
   -webkit-appearance: button;
 }
 

@@ -9,20 +9,20 @@
                 <label for="title" class="fw-bold">Titre de l'article</label>
                 <input type="text" name="title" id="title" class="p-1 rounded" required>
             </div>
-            <div class="d-flex flex-column gap-2">
+            <div class="d-flex flex-column gap-2 mb-2">
                 <label for="position" class="fw-bold">Position de l'article</label>
                 <input type="number" name="position" id="position" class="p-1 rounded" required>
             </div>
             <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="type"
-                placeholder="Type de techno utilisée">
+                placeholder="Type de techno utilisée" required>
                 <option value="">Techno</option>
                 <?php foreach($types as $type): ?>
                 <option value="<?= $type['type'] ?>"><?= $type['type'] ?></option>
                 <?php endforeach; ?>
             </select>
 
-            <textarea id="classic" name="pitch">Le pitch de l'article.</textarea>
-            <textarea id="default" name="text" style="height:800px">L'article</textarea>
+            <textarea name="pitch" placeholder="Le pitch de l'article."></textarea>
+            <textarea id="classic" name="text" placeholder="L'article"></textarea>
 
             <button class="btn btn-primary">Poster</button>
 
