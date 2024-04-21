@@ -103,4 +103,15 @@ class ArticlesController extends MainController
         header( 'Location: ' . URL . 'admin/articles/view_all_articles' );
     }
 
+    public function  sendAllArticles(){
+        $articles = $this->articlesManager->getAllArticles();
+        $types = $this->articlesManager->getAllTypesArticles();
+        $datas_articles = [
+            'articles' => $articles,
+            'types' => $types
+        ];
+        Tools::sendJson_get($datas_articles);
+    
+    }
+
 }
