@@ -75,6 +75,9 @@ try {
             case 'api_articles':
                 $articlesController->sendAllArticles();
                 break;
+            case 'api_shares':
+                $articlesController->sendAllShares();
+                break;
 
             default:
             throw new Exception( "La page demandée n'existe pas..." );

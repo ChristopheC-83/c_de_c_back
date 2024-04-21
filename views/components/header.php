@@ -9,10 +9,11 @@
 </header>
 
 <?php if (!empty($_SESSION['name'])) : ?>
-<div class="d-flex w-100 flex-wrap justify-content-between p-4
+<div class="d-flex w-100 flex-wrap justify-content-center p-4
 ">
-    <a href="<?=URL?>admin/articles/write_new_article"><button class="btn btn-primary">Ecrire un article</button></a>
-    <a href="<?=URL?>admin/articles/view_all_articles"><button class="btn btn-secondary">Voir les articles</button></a>
+    <a href="<?=URL?>admin/articles/write_new_article"><button class="btn btn-primary mx-3">Ecrire un article</button></a>
+    <a href="<?=URL?>admin/articles/view_all_articles"><button class="btn btn-secondary mx-3">Voir les articles</button></a>
+    <a href="<?=URL?>admin/articles/view_all_shares"><button class="btn btn-warning mx-3">Voir les partages</button></a>
 
 
 </div>

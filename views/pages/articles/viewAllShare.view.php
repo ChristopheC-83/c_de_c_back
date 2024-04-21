@@ -4,7 +4,7 @@
     <div class="container mt-3 row w-100 mx-auto ">
         <?php foreach($types as $type): ?>
 
-        <?php if($type['type'] != "share" && $type['type'] != "all"): ?>
+        <?php if($type['type'] === "share"): ?>
         <div class="d-flex w-100 border border-2 border-black mt-5 align-items-center">
             <h2 class="col-6"><?= $type['type'] ?></h2>
             <div class="col-2 text-center">

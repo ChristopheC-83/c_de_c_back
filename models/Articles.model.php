@@ -39,6 +39,24 @@ class ArticlesManager extends MainManager
         
     }
 
+    public function getAllVisibleArticles(){
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type != "share" ORDER BY type, position';
+        $stmt = $this->getDB()->prepare($req);
+        $stmt->execute();
+        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $articles;
+    }
+
+    public function getAllVisibleShares(){
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type = "share" ORDER BY position';
+        $stmt = $this->getDB()->prepare($req);
+        $stmt->execute();
+        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $articles;
+    }
+
     public function  getArticleById($id){
         $req = 'SELECT * FROM articles WHERE id = :id';
         $stmt = $this->getDB()->prepare( $req );

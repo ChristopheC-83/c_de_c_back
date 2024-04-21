@@ -61,6 +61,21 @@ class ArticlesController extends MainController
         $this->functions->generatePage( $data_page );
 
     }
+    public function  viewAllShares() {
+
+        $types = $this->articlesManager->getAllTypesArticles();
+        $allArticles = $this->articlesManager->getAllArticles();
+        $data_page = [
+            'page_description' => 'All Articles',
+            'page_title' => 'All Articles',
+            'view' => './views/pages/articles/viewAllShare.view.php',
+            'template' => './views/common/template.php',
+            'allArticles' => $allArticles,
+            'types' => $types,
+        ];
+        $this->functions->generatePage( $data_page );
+
+    }
 
     public function  deleteArticle( $id ) {
 
@@ -104,14 +119,18 @@ class ArticlesController extends MainController
     }
 
     public function  sendAllArticles(){
-        $articles = $this->articlesManager->getAllArticles();
-        $types = $this->articlesManager->getAllTypesArticles();
+        $articles = $this->articlesManager->getAllVisibleArticles();
         $datas_articles = [
             'articles' => $articles,
-            'types' => $types
         ];
         Tools::sendJson_get($datas_articles);
-    
     }
 
+    public function  sendAllShares(){
+        $articles = $this->articlesManager->getAllVisibleShares();
+        $datas_articles = [
+            'articles' => $articles,
+        ];
+        Tools::sendJson_get($datas_articles);
+    }
 }

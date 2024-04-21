@@ -28,6 +28,9 @@ switch ( $url[ 2 ] ) {
     case 'view_all_articles':
     $articlesController->viewAllArticles();
     break;
+    case 'view_all_shares':
+    $articlesController->viewAllShares();
+    break;
 
     case 'delete_article':
         $id = Tools::secureHTML( $_POST[ 'id' ] );
