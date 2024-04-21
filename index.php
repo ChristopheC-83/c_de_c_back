@@ -10,7 +10,7 @@ define( 'MEDIA_PATH', 'public/assets/articles_media/article_' );
 require_once( './controllers/Tools.controller.php' );
 require_once( './controllers/Main.controller.php' );
 require_once( './controllers/Home.controller.php' );
-require_once( './controllers/articles.controller.php' );
+require_once( './controllers/Articles.controller.php' );
 
 $mainController = new MainController();
 $homeController = new HomeController();
