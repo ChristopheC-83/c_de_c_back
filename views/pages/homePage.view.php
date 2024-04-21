@@ -21,7 +21,7 @@
                     </div>
                 </form>
                 <!-- Un mot de passe hashé ? -->
-                <!-- <?= password_hash("mdp_à_hasher", PASSWORD_DEFAULT)  ?> -->
+                <!-- <?= password_hash("*Santa30420*", PASSWORD_DEFAULT)  ?> -->
             </div>
 
         <?php endif ?>
