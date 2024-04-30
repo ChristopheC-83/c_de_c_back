@@ -21,7 +21,7 @@
                 <input type="text" name="thumbnail" id="thumbnail" class="p-1 rounded" required
                     value=<?= $article['thumbnail']  ?>>
             </div>
-            <img src=<?= $article['thumbnail']?> alt="" style="width:250px">
+            <img src=<?= $article['thumbnail']?> alt="" class="border border-2 border-black col-3 rounded-5 shadow my-3">
 
             <div class="d-flex flex-column gap-2">
                 <label for="visible" class="fw-bold">Visibilité de l'article : <?= $article['visible']?></label>
