@@ -16,6 +16,12 @@
                 <input type="text" name="position" id="position" class="p-1 rounded" required
                     value=<?= $article['position']  ?>>
             </div>
+            <div class="d-flex flex-column gap-2">
+                <label for="thumbnail" class="fw-bold">Image de l'article</label>
+                <input type="text" name="thumbnail" id="thumbnail" class="p-1 rounded" required
+                    value=<?= $article['thumbnail']  ?>>
+            </div>
+            <img src=<?= $article['thumbnail']?> alt="" style="width:250px">
 
             <div class="d-flex flex-column gap-2">
                 <label for="visible" class="fw-bold">Visibilité de l'article : <?= $article['visible']?></label>
