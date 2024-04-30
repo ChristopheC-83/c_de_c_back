@@ -30,13 +30,13 @@ class ArticlesController extends MainController
         $this->functions->generatePage( $data_page );
     }
 
-    public function  sendNewArticleToDB( $title, $position, $type, $pitch, $text ) {
+    public function  sendNewArticleToDB( $title, $position,$thumbnail,  $type, $pitch, $text ) {
 
         while ( $this->articlesManager->isPositionUnavailable( $position, $type ) ) {
             $position++;
         }
 
-        if ( $this->articlesManager->sendNewArticleToDB( $title, $position, $type, $pitch, $text ) )
+        if ( $this->articlesManager->sendNewArticleToDB( $title, $position,$thumbnail, $type, $pitch, $text ) )
  {
             Tools::showAlert( 'Article bien enregistré à la position '.$position.' !', 'alert-success' );
         } else {

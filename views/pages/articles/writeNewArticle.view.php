@@ -13,6 +13,10 @@
                 <label for="position" class="fw-bold">Position de l'article</label>
                 <input type="number" name="position" id="position" class="p-1 rounded" required>
             </div>
+            <div class="d-flex flex-column gap-2 mb-2">
+                <label for="thumbnail" class="fw-bold">Image du partage</label>
+                <input type="text" name="thumbnail" id="thumbnail" class="p-1 rounded" >
+            </div>
             <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="type"
                 placeholder="Type de techno utilisée" required>
                 <option value="">Techno</option>
