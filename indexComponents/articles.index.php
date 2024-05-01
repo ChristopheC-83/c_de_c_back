@@ -18,7 +18,7 @@ switch ( $url[ 2 ] ) {
     $type = Tools::secureHTML( $_POST[ 'type' ] );
     $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
     $text = Tools::secureHTML( $_POST[ 'text' ] );
-    if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) ) {
+    if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) && !empty( $thumbnail ) ) {
         $articlesController->sendNewArticleToDB( $title, $position,$thumbnail , $type, $pitch, $text );
     } else {
         Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
@@ -48,12 +48,13 @@ switch ( $url[ 2 ] ) {
         $id = Tools::secureHTML( $_POST[ 'id' ] );
         $title = Tools::secureHTML( $_POST[ 'title' ] );
         $position = Tools::secureHTML( $_POST[ 'position' ] );
+        $thumbnail = Tools::secureHTML( $_POST[ 'thumbnail' ] );
         $visible = Tools::secureHTML( $_POST[ 'visible' ] );
         $type = Tools::secureHTML( $_POST[ 'type' ] );
         $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
         $text = Tools::secureHTML( $_POST[ 'text' ] );
-        if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) ) {
-            $articlesController->updateThisArticle( $id, $title, $position,$visible, $type, $pitch, $text );
+        if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) && !empty( $thumbnail )) {
+            $articlesController->updateThisArticle( $id, $title, $position,$thumbnail ,$visible, $type, $pitch, $text );
         } else {
             Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
             header( 'Location: ' . URL . 'admin/articles/updateArticle/' . $id );
