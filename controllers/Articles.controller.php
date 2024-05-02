@@ -122,7 +122,11 @@ class ArticlesController extends MainController
             Tools::showAlert('Problème lors de la modification de l\'article !', 'alert-danger');
         }
 
-        header('Location: ' . URL . 'admin/articles/view_all_articles');
+        if ($type == 'share') {
+            header('Location: ' . URL . 'admin/articles/view_all_shares');
+        } else {
+            header('Location: ' . URL . 'admin/articles/view_all_articles');
+        }
     }
 
     public function  sendAllArticles()
