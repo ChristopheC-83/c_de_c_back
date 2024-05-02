@@ -8,7 +8,7 @@
 
             <div class="d-flex flex-column gap-2">
                 <label for="title" class="fw-bold">Titre de l'article</label>
-                <input type="text" name="title" id="title" class="p-1 rounded" required value=<?= $article['title'] ?>>
+                <input type="text" name="title" id="title" class="p-1 rounded" required value="<?= $article['title'] ?>">
             </div>
             <div class="d-flex flex-column gap-2">
                 <label for="position" class="fw-bold">Position de l'article</label>
