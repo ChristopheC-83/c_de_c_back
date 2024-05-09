@@ -6,9 +6,9 @@ const demoBaseConfig = {
     autosave_ask_before_unload: false,
     powerpaste_allow_local_images: true,
     plugins: [
-      'a11ychecker', 'advcode', 'advlist', 'anchor', 'autolink', 'codesample', 'fullscreen', 'help',
-      'image', 'editimage', 'tinydrive', 'lists', 'link', 'media', 'powerpaste', 'preview',
-      'searchreplace', 'table', 'tinymcespellchecker', 'visualblocks', 'wordcount'
+      'advlist', 'anchor', 'autolink', 'codesample', 'fullscreen', 'help',
+      'image', 'tinydrive', 'lists', 'link', 'media','preview',
+      'searchreplace', 'table', 'visualblocks', 'wordcount'
     ],
     toolbar: 'insertfile a11ycheck undo redo | bold italic | forecolor backcolor | codesample | alignleft aligncenter alignright alignjustify | bullist numlist | link image',
     spellchecker_dialog: true,
