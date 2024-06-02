@@ -43,7 +43,7 @@ class ArticlesManager extends MainManager
 
     public function getAllVisibleArticles()
     {
-        $req = 'SELECT * FROM articles WHERE visible = 1 AND type != "share" ORDER BY position';
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type NOT IN ("share", "tuto") ORDER BY position';
         $stmt = $this->getDB()->prepare($req);
         $stmt->execute();
         $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,14 +51,32 @@ class ArticlesManager extends MainManager
         return $articles;
     }
     public function getLastVisibleArticle()
-{
-    $req = 'SELECT * FROM articles WHERE visible = 1 AND type != "share" ORDER BY id DESC LIMIT 1';
-    $stmt = $this->getDB()->prepare($req);
-    $stmt->execute();
-    $article = $stmt->fetch(PDO::FETCH_ASSOC); 
-    $stmt->closeCursor();
-    return $article;
-}
+    {
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type NOT IN ("share", "tuto") ORDER BY id DESC LIMIT 1';
+        $stmt = $this->getDB()->prepare($req);
+        $stmt->execute();
+        $article = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $article;
+    }
+    public function getAllVisibleTutos()
+    {
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type = "tuto" ORDER BY position';
+        $stmt = $this->getDB()->prepare($req);
+        $stmt->execute();
+        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $articles;
+    }
+    public function getLastVisibleTuto()
+    {
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type = "tuto" ORDER BY id DESC LIMIT 1';
+        $stmt = $this->getDB()->prepare($req);
+        $stmt->execute();
+        $articles = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $articles;
+    }
     public function getAllVisibleShares()
     {
         $req = 'SELECT * FROM articles WHERE visible = 1 AND type = "share" ORDER BY position';
@@ -113,7 +131,7 @@ class ArticlesManager extends MainManager
         return $isDelete;
     }
 
-    public function updateThisArticleDB($id, $title, $position,$thumbnail, $visible, $type, $pitch, $text)
+    public function updateThisArticleDB($id, $title, $position, $thumbnail, $visible, $type, $pitch, $text)
     {
         $req = 'UPDATE articles SET title = :title, position = :position,thumbnail= :thumbnail,visible = :visible, type = :type, pitch = :pitch, text = :text WHERE id = :id';
         $stmt = $this->getDB()->prepare($req);

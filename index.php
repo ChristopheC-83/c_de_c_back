@@ -75,11 +75,17 @@ try {
             case 'api_articles':
                 $articlesController->sendAllArticles();
                 break;
+            case 'api_tutos':
+                $articlesController->sendAllTutos();
+                break;
             case 'api_shares':
                 $articlesController->sendAllShares();
                 break;
             case 'api_last_article':
                 $articlesController->sendLastArticle();
+                break;
+            case 'api_last_tuto':
+                $articlesController->sendLastTuto();
                 break;
             case 'api_last_share':
                 $articlesController->sendLastShare();

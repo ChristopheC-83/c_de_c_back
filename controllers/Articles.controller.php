@@ -137,30 +137,41 @@ class ArticlesController extends MainController
         ];
         Tools::sendJson_get($datas_articles);
     }
+    public function  sendAllTutos()
+    {
+        $tutos = $this->articlesManager->getAllVisibleTutos();
+        $datas_tutos = [
+            'tutos' => $tutos,
+        ];
+        Tools::sendJson_get($datas_tutos);
+    }
 
     public function  sendAllShares()
     {
-        $articles = $this->articlesManager->getAllVisibleShares();
-        $datas_articles = [
-            'articles' => $articles,
+        $shares = $this->articlesManager->getAllVisibleShares();
+        $datas_shares = [
+            'shares' => $shares,
         ];
-        Tools::sendJson_get($datas_articles);
+        Tools::sendJson_get($datas_shares);
     }
+   
     public function  sendLastArticle()
     {
-        $articles = $this->articlesManager->getLastVisibleArticle();
-        $datas_articles = [
-            'articles' => $articles,
-        ];
-        Tools::sendJson_get($datas_articles);
+        $article = $this->articlesManager->getLastVisibleArticle();
+       
+        Tools::sendJson_get($article);
+    }
+    public function  sendLastTuto()
+    {
+        $tuto = $this->articlesManager->getLastVisibleTuto();
+       
+        Tools::sendJson_get($tuto);
     }
 
     public function  sendLastShare()
     {
-        $articles = $this->articlesManager->getLastVisibleShare();
-        $datas_articles = [
-            'articles' => $articles,
-        ];
-        Tools::sendJson_get($datas_articles);
+        $share = $this->articlesManager->getLastVisibleShare();
+       
+        Tools::sendJson_get($share);
     }
 }
