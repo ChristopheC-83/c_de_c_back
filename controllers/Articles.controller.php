@@ -146,4 +146,21 @@ class ArticlesController extends MainController
         ];
         Tools::sendJson_get($datas_articles);
     }
+    public function  sendLastArticle()
+    {
+        $articles = $this->articlesManager->getLastVisibleArticle();
+        $datas_articles = [
+            'articles' => $articles,
+        ];
+        Tools::sendJson_get($datas_articles);
+    }
+
+    public function  sendLastShare()
+    {
+        $articles = $this->articlesManager->getLastVisibleShare();
+        $datas_articles = [
+            'articles' => $articles,
+        ];
+        Tools::sendJson_get($datas_articles);
+    }
 }

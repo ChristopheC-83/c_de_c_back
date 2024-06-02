@@ -78,6 +78,12 @@ try {
             case 'api_shares':
                 $articlesController->sendAllShares();
                 break;
+            case 'api_last_article':
+                $articlesController->sendLastArticle();
+                break;
+            case 'api_last_share':
+                $articlesController->sendLastShare();
+                break;
 
             default:
             throw new Exception( "La page demandée n'existe pas..." );

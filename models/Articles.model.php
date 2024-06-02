@@ -50,13 +50,30 @@ class ArticlesManager extends MainManager
         $stmt->closeCursor();
         return $articles;
     }
-
+    public function getLastVisibleArticle()
+{
+    $req = 'SELECT * FROM articles WHERE visible = 1 AND type != "share" ORDER BY id DESC LIMIT 1';
+    $stmt = $this->getDB()->prepare($req);
+    $stmt->execute();
+    $article = $stmt->fetch(PDO::FETCH_ASSOC); 
+    $stmt->closeCursor();
+    return $article;
+}
     public function getAllVisibleShares()
     {
         $req = 'SELECT * FROM articles WHERE visible = 1 AND type = "share" ORDER BY position';
         $stmt = $this->getDB()->prepare($req);
         $stmt->execute();
         $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $articles;
+    }
+    public function getLastVisibleShare()
+    {
+        $req = 'SELECT * FROM articles WHERE visible = 1 AND type = "share" ORDER BY id DESC LIMIT 1';
+        $stmt = $this->getDB()->prepare($req);
+        $stmt->execute();
+        $articles = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         return $articles;
     }
