@@ -17,13 +17,22 @@
                 <label for="thumbnail" class="fw-bold">Image de l'article</label>
                 <input type="text" name="thumbnail" id="thumbnail" class="p-1 rounded" >
             </div>
-            <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="type"
-                placeholder="Type de techno utilisée" required>
-                <option value="">Techno</option>
-                <?php foreach($types as $type): ?>
-                <option value="<?= $type['type'] ?>"><?= $type['type'] ?></option>
-                <?php endforeach; ?>
-            </select>
+            <div class="d-flex gap-3 mb-3">
+                <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="type"
+                    placeholder="Type de techno utilisée" required>
+                    <option value="">Type</option>
+                    <?php foreach($types as $type): ?>
+                    <option value="<?= $type['type'] ?>"><?= $type['type'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="language"
+                    placeholder="Type de techno utilisée" required>
+                    <option value="">Langage</option>
+                    <?php foreach($languages as $language): ?>
+                    <option value="<?= $language['language'] ?>"><?= $language['language'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
             <textarea name="pitch" placeholder="Le pitch de l'article."></textarea>
             <textarea id="classic" name="text" placeholder="L'article"></textarea>

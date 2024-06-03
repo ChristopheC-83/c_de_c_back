@@ -32,15 +32,22 @@
                 </select>
             </div>
 
-            <div class="d-flex flex-column gap-2">
-                <label for="type" class="fw-bold">Techno</label>
-                <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="type" placeholder="Type de techno utilisée">
-                    <?php foreach ($types as $type) : ?>
-
-
+            <div class="d-flex gap-3 mb-3">
+                <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="type"
+                    placeholder="Type de techno utilisée" required>
+                    <?php foreach($types as $type): ?>
                         <option value="<?= $type['type'] ?>" <?= $type['type'] === $article['type'] ? 'selected' : '' ?>>
                             <?= $type['type'] ?>
                         </option>
+                    <?php endforeach; ?>
+                </select>
+                <select type="text" class="col-4 text-primary fs-5 p-1 rounded" id="type" name="language"
+                    placeholder="Type de techno utilisée" required>
+                    <?php foreach($languages as $language): ?>
+                        <option value="<?= $language['language'] ?>" <?= $language['language'] === $article['language'] ? 'selected' : '' ?>>
+                            <?= $language['language'] ?>
+                        </option>
+                    
                     <?php endforeach; ?>
                 </select>
             </div>

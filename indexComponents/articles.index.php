@@ -16,10 +16,11 @@ switch ( $url[ 2 ] ) {
     $position = Tools::secureHTML( $_POST[ 'position' ] );
     $thumbnail = Tools::secureHTML( $_POST[ 'thumbnail' ] );
     $type = Tools::secureHTML( $_POST[ 'type' ] );
+    $language = Tools::secureHTML( $_POST[ 'language' ] );
     $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
     $text = Tools::secureHTML( $_POST[ 'text' ] );
-    if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) && !empty( $thumbnail ) ) {
-        $articlesController->sendNewArticleToDB( $title, $position,$thumbnail , $type, $pitch, $text );
+    if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $language ) && !empty( $pitch ) && !empty( $thumbnail ) ) {
+        $articlesController->sendNewArticleToDB( $title, $position,$thumbnail , $type,$language, $pitch, $text );
     } else {
         Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
         header( 'Location: ' . URL . 'admin/articles/write_new_article' );
@@ -32,6 +33,14 @@ switch ( $url[ 2 ] ) {
     case 'view_all_shares':
     $articlesController->viewAllShares();
     break;
+    case 'view_all_projects':
+    $articlesController->viewAllProjects();
+    break;
+    case 'view_all_tutos':
+    $articlesController->viewAllTutos();
+    break;
+
+
 
     case 'delete_article':
         $id = Tools::secureHTML( $_POST[ 'id' ] );
@@ -51,10 +60,11 @@ switch ( $url[ 2 ] ) {
         $thumbnail = Tools::secureHTML( $_POST[ 'thumbnail' ] );
         $visible = Tools::secureHTML( $_POST[ 'visible' ] );
         $type = Tools::secureHTML( $_POST[ 'type' ] );
+        $language = Tools::secureHTML( $_POST[ 'language' ] );
         $pitch = Tools::secureHTML( $_POST[ 'pitch' ] );
         $text = Tools::secureHTML( $_POST[ 'text' ] );
-        if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $pitch ) && !empty( $thumbnail )) {
-            $articlesController->updateThisArticle( $id, $title, $position,$thumbnail ,$visible, $type, $pitch, $text );
+        if ( !empty( $title ) && !empty( $position ) && !empty( $type ) && !empty( $language ) && !empty( $pitch ) && !empty( $thumbnail )) {
+            $articlesController->updateThisArticle( $id, $title, $position,$thumbnail ,$visible, $type,$language, $pitch, $text );
         } else {
             Tools::showAlert( 'Il faut remplir tous les champs !', 'alert-warning' );
             header( 'Location: ' . URL . 'admin/articles/updateArticle/' . $id );

@@ -1,15 +1,16 @@
+<?php 
 
+// Tools::showArray($allArticles);
 
+?>
 
-<h1 class="text-center my-4"><u>Voir tous les articles</u></h1>
+<h1 class="text-center my-4"><u>Voir tous les <?= $type  ?></u></h1>
 <div class="container mt-3 d-flex flex-column justify-content-center align-items-center gap-2">
 
     <div class="container mt-3 row w-100 mx-auto ">
-        <?php foreach ($types as $type) : ?>
 
-            <?php if ($type['type'] != "share" && $type['type'] != "all") : ?>
                 <div class="d-flex w-100 border border-2 border-black mt-5 align-items-center bg-dark text-white">
-                    <h2 class="col-6 text-uppercase"><?= $type['type'] ?></h2>
+                    <h2 class="col-6 text-uppercase"><?= $type  ?></h2>
                     <div class="col-2 text-center">
                         <p>Visible</p>
                     </div>
@@ -22,7 +23,6 @@
                     </div>
                 </div>
                 <?php foreach ($allArticles as $article) : ?>
-                    <?php if ($article['type'] === $type['type']) : ?>
 
 
                         <div class="d-flex w-100 border border-2 border-secondary border-top-0 align-items-center">
@@ -42,10 +42,7 @@
                             </div>
 
                         </div>
-                    <?php endif ?>
                 <?php endforeach ?>
-            <?php endif ?>
-        <?php endforeach ?>
 
     </div>
 </div>
